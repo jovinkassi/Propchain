@@ -1,0 +1,29 @@
+$bg-card: #16213e;
+$border: rgba(255, 255, 255, 0.08);
+$text-light: #e0e0e0;
+$text-muted: #a0a0b0;
+
+.chartCard {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
+  }
+}
+
+.chartTitle {
+  color: $text-light;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.chartSubtitle {
+  color: $text-muted;
+  font-size: 0.8rem;
+  margin: 0 0 1rem;
+}

@@ -1,0 +1,136 @@
+$bg-card: #16213e;
+$border: rgba(255, 255, 255, 0.08);
+$text-light: #e0e0e0;
+$text-muted: #a0a0b0;
+$primary: #6c63ff;
+$success: #00d4aa;
+
+.section {
+  padding: 2rem 1.5rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-light;
+  margin-bottom: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: $text-muted;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, #0f3460, #16213e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder { font-size: 4rem; }
+
+.yieldBadge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0, 212, 170, 0.15);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+  color: $success;
+  border-radius: 2rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text-light;
+  margin: 0;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: $text-muted;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-light;
+}
+
+.investBtn {
+  margin-top: auto;
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+
+  &:hover { background: darken($primary, 8%); }
+}

@@ -1,0 +1,77 @@
+$primary: #6c63ff;
+$text-light: #e0e0e0;
+$text-muted: #a0a0b0;
+$border: rgba(255, 255, 255, 0.08);
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  background: radial-gradient(ellipse at 60% 20%, rgba(108, 99, 255, 0.15) 0%, transparent 60%);
+  text-align: center;
+}
+
+.content {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.15);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  color: lighten($primary, 20%);
+  border-radius: 2rem;
+  padding: 0.3rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.highlight { color: $primary; }
+
+.subtitle {
+  color: $text-muted;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+
+  strong { font-size: 1.5rem; font-weight: 700; color: $text-light; }
+  span { font-size: 0.78rem; color: $text-muted; text-transform: uppercase; letter-spacing: 0.05em; }
+}

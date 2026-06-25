@@ -1,0 +1,46 @@
+$bg-card: #16213e;
+$border: rgba(255, 255, 255, 0.08);
+$text-light: #e0e0e0;
+$text-muted: #a0a0b0;
+$primary: #6c63ff;
+
+.section {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.2s;
+
+  &:hover { box-shadow: 0 4px 20px rgba(108, 99, 255, 0.12); }
+}
+
+.value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $text-light;
+  margin: 0 0 0.3rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}

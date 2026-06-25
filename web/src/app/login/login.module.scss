@@ -1,0 +1,92 @@
+@use "../../styles/variables" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: $bg;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: $bg-secondary;
+  border: 1px solid $border;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $primary;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: $text-muted;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.connectBtn {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  color: $danger;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  &::before, &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: $border;
+  }
+
+  span {
+    font-size: 0.75rem;
+    color: $text-muted;
+    white-space: nowrap;
+  }
+}
+
+.features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 1.5rem;
+
+  li {
+    font-size: 0.875rem;
+    color: $text-muted;
+    padding: 0.4rem 0;
+  }
+}
+
+.note {
+  font-size: 0.8rem;
+  color: $text-muted;
+
+  a { color: $primary; }
+}

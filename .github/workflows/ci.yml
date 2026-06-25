@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  contracts:
+    name: Smart Contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+        working-directory: contracts
+      - run: npm run compile
+        working-directory: contracts
+      - run: npm test
+        working-directory: contracts
+
+  api:
+    name: Backend API
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: propchain_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+        working-directory: backend/api
+      - run: npm run build
+        working-directory: backend/api
+      - run: npm test
+        working-directory: backend/api
+        env:
+          DATABASE_URL: postgres://postgres:test@localhost:5432/propchain_test
+          JWT_SECRET: test_secret
+
+  indexer:
+    name: Rust Indexer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release
+        working-directory: backend/indexer
+      - run: cargo test
+        working-directory: backend/indexer
+
+  analytics:
+    name: Python Analytics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+        working-directory: backend/analytics
+      - run: python -m pytest
+        working-directory: backend/analytics
+
+  mobile:
+    name: Mobile App
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+        working-directory: mobile
+      - run: npm run test:ci
+        working-directory: mobile
+
+  web:
+    name: Web Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+        working-directory: web
+      - run: npm run build
+        working-directory: web
